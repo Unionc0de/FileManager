@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <string>
 #include <list>
-#include <msclr/marshal_cppstd.h> // Для преобразования System::String^ в std::string
+#include <msclr/marshal_cppstd.h> // Г„Г«Гї ГЇГ°ГҐГ®ГЎГ°Г Г§Г®ГўГ Г­ГЁГї System::String^ Гў std::string
 
 using namespace std;
 namespace FileManagerGUI {
@@ -16,7 +16,7 @@ namespace FileManagerGUI {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для MainForm
+	/// Г‘ГўГ®Г¤ГЄГ  Г¤Г«Гї MainForm
 	/// </summary>
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
@@ -25,13 +25,13 @@ namespace FileManagerGUI {
 		{
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: Г¤Г®ГЎГ ГўГјГІГҐ ГЄГ®Г¤ ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°Г 
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// ГЋГ±ГўГ®ГЎГ®Г¤ГЁГІГј ГўГ±ГҐ ГЁГ±ГЇГ®Г«ГјГ§ГіГҐГ¬Г»ГҐ Г°ГҐГ±ГіГ°Г±Г».
 		/// </summary>
 		~MainForm()
 		{
@@ -50,14 +50,14 @@ namespace FileManagerGUI {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// ГЋГЎГїГ§Г ГІГҐГ«ГјГ­Г Гї ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г Гї ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°Г .
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// Г’Г°ГҐГЎГіГҐГ¬Г»Г© Г¬ГҐГІГ®Г¤ Г¤Г«Гї ГЇГ®Г¤Г¤ГҐГ°Г¦ГЄГЁ ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°Г  вЂ” Г­ГҐ ГЁГ§Г¬ГҐГ­ГїГ©ГІГҐ 
+		/// Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГҐ ГЅГІГ®ГЈГ® Г¬ГҐГІГ®Г¤Г  Г± ГЇГ®Г¬Г®Г№ГјГѕ Г°ГҐГ¤Г ГЄГІГ®Г°Г  ГЄГ®Г¤Г .
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -76,7 +76,7 @@ namespace FileManagerGUI {
 			this->searchButton->Name = L"searchButton";
 			this->searchButton->Size = System::Drawing::Size(154, 44);
 			this->searchButton->TabIndex = 0;
-			this->searchButton->Text = L"Найти файлы";
+			this->searchButton->Text = L"ГЌГ Г©ГІГЁ ГґГ Г©Г«Г»";
 			this->searchButton->UseVisualStyleBackColor = true;
 			this->searchButton->Click += gcnew System::EventHandler(this, &MainForm::searchButton_Click);
 			// 
@@ -88,7 +88,7 @@ namespace FileManagerGUI {
 			this->exitButton->Name = L"exitButton";
 			this->exitButton->Size = System::Drawing::Size(152, 42);
 			this->exitButton->TabIndex = 1;
-			this->exitButton->Text = L"Закрыть";
+			this->exitButton->Text = L"Г‡Г ГЄГ°Г»ГІГј";
 			this->exitButton->UseVisualStyleBackColor = true;
 			this->exitButton->Click += gcnew System::EventHandler(this, &MainForm::exitButton_Click);
 			// 
@@ -108,7 +108,7 @@ namespace FileManagerGUI {
 			this->searchLabel->Name = L"searchLabel";
 			this->searchLabel->Size = System::Drawing::Size(219, 24);
 			this->searchLabel->TabIndex = 3;
-			this->searchLabel->Text = L"Введите путь до папки";
+			this->searchLabel->Text = L"Г‚ГўГҐГ¤ГЁГІГҐ ГЇГіГІГј Г¤Г® ГЇГ ГЇГЄГЁ";
 			// 
 			// resultListBox
 			// 
@@ -141,50 +141,50 @@ namespace FileManagerGUI {
 #pragma endregion
 	
 	private: list<string> searchFile(string path) {
-		list<string> result;  // Список для хранения найденных файлов и папок
+		list<string> result;  // Г‘ГЇГЁГ±Г®ГЄ Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї Г­Г Г©Г¤ГҐГ­Г­Г»Гµ ГґГ Г©Г«Г®Гў ГЁ ГЇГ ГЇГ®ГЄ
 		setlocale(LC_ALL, "rus");
 
-		// Добавляем шаблон "\*" для поиска всех файлов/папок в директории
+		// Г„Г®ГЎГ ГўГ«ГїГҐГ¬ ГёГ ГЎГ«Г®Г­ "\*" Г¤Г«Гї ГЇГ®ГЁГ±ГЄГ  ГўГ±ГҐГµ ГґГ Г©Г«Г®Гў/ГЇГ ГЇГ®ГЄ Гў Г¤ГЁГ°ГҐГЄГІГ®Г°ГЁГЁ
 		path += "\\*";
 
-		// Структура для хранения информации о файле или папке
+		// Г‘ГІГ°ГіГЄГІГіГ°Г  Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГґГ Г©Г«ГҐ ГЁГ«ГЁ ГЇГ ГЇГЄГҐ
 		WIN32_FIND_DATAA findFileData;
 
-		// Функция FindFirstFileA возвращает дескриптор первого файла в папке
+		// Г”ГіГ­ГЄГ¶ГЁГї FindFirstFileA ГўГ®Г§ГўГ°Г Г№Г ГҐГІ Г¤ГҐГ±ГЄГ°ГЁГЇГІГ®Г° ГЇГҐГ°ГўГ®ГЈГ® ГґГ Г©Г«Г  Гў ГЇГ ГЇГЄГҐ
 		HANDLE hFind = FindFirstFileA(path.c_str(), &findFileData);
 
-		// Проверяем, удалось ли открыть папку
+		// ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, ГіГ¤Г Г«Г®Г±Гј Г«ГЁ Г®ГІГЄГ°Г»ГІГј ГЇГ ГЇГЄГі
 		if (hFind == INVALID_HANDLE_VALUE) {
-			cerr << "Ошибка при открытии директории! Проверьте путь." << endl;
+			cerr << "ГЋГёГЁГЎГЄГ  ГЇГ°ГЁ Г®ГІГЄГ°Г»ГІГЁГЁ Г¤ГЁГ°ГҐГЄГІГ®Г°ГЁГЁ! ГЏГ°Г®ГўГҐГ°ГјГІГҐ ГЇГіГІГј." << endl;//РџРѕРјРјРµРЅСЏС‚СЊ РЅР° MessageBox
 		}
 		else {
-			// Цикл для перебора всех файлов и папок
+			// Г–ГЁГЄГ« Г¤Г«Гї ГЇГҐГ°ГҐГЎГ®Г°Г  ГўГ±ГҐГµ ГґГ Г©Г«Г®Гў ГЁ ГЇГ ГЇГ®ГЄ
 			do {
 				string fileName = findFileData.cFileName;
 
-				// Исключаем системные директории "." и ".."
+				// Г€Г±ГЄГ«ГѕГ·Г ГҐГ¬ Г±ГЁГ±ГІГҐГ¬Г­Г»ГҐ Г¤ГЁГ°ГҐГЄГІГ®Г°ГЁГЁ "." ГЁ ".."
 				if (fileName != "." && fileName != "..") {
-					result.push_back(fileName);  // Добавляем имя файла/папки в список
+					result.push_back(fileName);  // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ ГЁГ¬Гї ГґГ Г©Г«Г /ГЇГ ГЇГЄГЁ Гў Г±ГЇГЁГ±Г®ГЄ
 				}
-			} while (FindNextFileA(hFind, &findFileData) != 0); // Переходим к следующему файлу/папке
+			} while (FindNextFileA(hFind, &findFileData) != 0); // ГЏГҐГ°ГҐГµГ®Г¤ГЁГ¬ ГЄ Г±Г«ГҐГ¤ГіГѕГ№ГҐГ¬Гі ГґГ Г©Г«Гі/ГЇГ ГЇГЄГҐ
 
-			// Закрываем дескриптор, чтобы освободить ресурсы
+			// Г‡Г ГЄГ°Г»ГўГ ГҐГ¬ Г¤ГҐГ±ГЄГ°ГЁГЇГІГ®Г°, Г·ГІГ®ГЎГ» Г®Г±ГўГ®ГЎГ®Г¤ГЁГІГј Г°ГҐГ±ГіГ°Г±Г»
 			FindClose(hFind);
 		}
 
-		return result;  // Возвращаем список файлов/папок
+		return result;  // Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ Г±ГЇГЁГ±Г®ГЄ ГґГ Г©Г«Г®Гў/ГЇГ ГЇГ®ГЄ
 	}
 	
 	private: System::Void PopulateListBox(std::list<std::string> items) {
-		// Очистка ListBox перед добавлением новых элементов
+		// ГЋГ·ГЁГ±ГІГЄГ  ListBox ГЇГҐГ°ГҐГ¤ Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГҐГ¬ Г­Г®ГўГ»Гµ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў
 		resultListBox->Items->Clear();
 
-		// Проход по списку и добавление элементов
+		// ГЏГ°Г®ГµГ®Г¤ ГЇГ® Г±ГЇГЁГ±ГЄГі ГЁ Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў
 		for (const auto& item : items) {
-			// Преобразование std::string в System::String^
+			// ГЏГ°ГҐГ®ГЎГ°Г Г§Г®ГўГ Г­ГЁГҐ std::string Гў System::String^
 			System::String^ managedItem = gcnew System::String(item.c_str());
 
-			// Добавление элемента в ListBox
+			// Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ  Гў ListBox
 			resultListBox->Items->Add(managedItem);
 		}
 	}
@@ -202,7 +202,7 @@ namespace FileManagerGUI {
 			PopulateListBox(result);
 		}
 		catch(exception ex) {
-			MessageBox::Show("Ошибка!!");
+			MessageBox::Show("ГЋГёГЁГЎГЄГ !!");
 		}
 	}
 };
